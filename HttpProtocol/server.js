@@ -9,7 +9,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res) => {
     let header = {
         'host': req.header('host'),
-        'userAgent': req.header('user-agent')
+        'userAgent': req.header('user-agent'),
+        'rawHeader': req.rawHeaders
     }
 
     res.send(header);
