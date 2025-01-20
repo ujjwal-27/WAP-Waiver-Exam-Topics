@@ -7,7 +7,11 @@ app.use(express.json()); // This allows sending data from client request in json
 app.use(express.urlencoded({ extended: false })); // This allows sending of form-data acquired from client request
 
 app.post('/contact', (req, res) => {
-    res.send(req.body);
+    if (!req.body.name) {
+        res.status(400).send('Name is required');
+    }
+
+    res.status(201).send(`Hello ${req.body.name}`);
 });
 
 const server = app.listen(5000, () => {
