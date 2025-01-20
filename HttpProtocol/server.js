@@ -3,11 +3,16 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); // this allows sending json data
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello from Express</h1>');
+    let header = {
+        'host': req.header('host'),
+        'userAgent': req.header('user-agent')
+    }
+
+    res.send(header);
 });
 
 const server = app.listen(5000, () => {
