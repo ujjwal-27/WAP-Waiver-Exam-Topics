@@ -1,4 +1,5 @@
 const express = require('express');
+// const path = require('path'); // unused at this point
 
 const app = express();
 
