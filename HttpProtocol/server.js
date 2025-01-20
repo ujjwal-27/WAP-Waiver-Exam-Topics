@@ -6,6 +6,10 @@ const app = express();
 app.use(express.json()); // This allows sending data from client request in json format. Test this in postman by sending data as 'raw json'
 app.use(express.urlencoded({ extended: false })); // This allows sending of form-data acquired from client request
 
+app.get('/', (req, res) => {
+    res.send('<h2>Hello Express!</h2>');
+});
+
 // simulating contact form
 app.post('/contact', (req, res) => {
     // checking name field
