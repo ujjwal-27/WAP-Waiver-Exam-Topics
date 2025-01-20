@@ -1,19 +1,13 @@
 const express = require('express');
-// const path = require('path');
+const path = require('path');
 
 const app = express();
 
-app.use(express.json()); // this allows sending json data
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json()); // This allows sending of body content from client request as response in json format
+app.use(express.urlencoded({ extended: false })); // This allows sending of form data acquired from client request
 
-app.get('/', (req, res) => {
-    let header = {
-        'host': req.header('host'),
-        'userAgent': req.header('user-agent'),
-        'rawHeader': req.rawHeaders
-    }
-
-    res.send(header);
+app.post('/contact', (req, res) => {
+    res.send(req.body);
 });
 
 const server = app.listen(5000, () => {
