@@ -36,6 +36,21 @@ app.post('/login', (req, res) => {
     });
 });
 
+// Simulating a simple form for updating data
+app.put('/post/:id', (req, res) => {
+    res.send({
+        'id': req.params.id,
+        'title': req.body.title
+    });
+});
+
+// Simulating a simple form for deleting data
+app.delete('/post/:id', (req, res) => {
+    res.send({
+        'message': `Post ${req.params.id} deleted.`
+    });
+});
+
 const server = app.listen(5000, () => {
     console.log('Server started on 5000');
 });
