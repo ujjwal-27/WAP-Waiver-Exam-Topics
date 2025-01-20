@@ -6,12 +6,34 @@ const app = express();
 app.use(express.json()); // This allows sending data from client request in json format. Test this in postman by sending data as 'raw json'
 app.use(express.urlencoded({ extended: false })); // This allows sending of form-data acquired from client request
 
+// simulating contact form
 app.post('/contact', (req, res) => {
+    // checking name field
     if (!req.body.name) {
         res.status(400).send('Name is required');
     }
 
-    res.status(201).send(`Hello ${req.body.name}`);
+    // sending response
+    res.status(201).send({
+        'data': req.body,
+        'message': `Hello ${req.body.name}`
+    });
+});
+
+// simulating login form to validate auth token in header
+app.post('/login', (req, res) => {
+    if (!req.header('x-auth-token')) {
+        res.status(400).send('No token');
+    }
+
+    if (req.header('x-auth-token') !== '1234567') {
+        res.status(401).send('Not authorized');
+    }
+
+    res.send({
+        'token': req.header('x-auth-token'),
+        'message': 'Logged in'
+    });
 });
 
 const server = app.listen(5000, () => {
