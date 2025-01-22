@@ -9,7 +9,7 @@
 
 <body>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
 
         <label for="username">Username</label>
         <input type="text" name="username" id="username" maxlength="15" minlength="7"><br>
@@ -38,7 +38,25 @@
         <label for="mrs">Mrs.</label>
 
         <input type="radio" name="title" id="ms" value="ms">
-        <label for="ms">Ms.</label>
+        <label for="ms">Ms.</label><br>
+
+        <label for="payment">Payment</label>
+        <select name="payment" id="payment">
+            <option value="visa">Visa card</option>
+            <option value="master">Master card</option>
+            <option value="debit">Debit card</option>
+            <option value="credit">Credit card</option>
+        </select><br>
+
+        <input type="checkbox" name="subscribe" id="subscribe">
+        <label for="subscribe">Subscribe</label><br>
+
+        <label for="comment">Comment</label>
+        <textarea name="comment" id="comment"></textarea><br>
+
+
+        <label for="image">Upload image</label>
+        <input type="file" name="image" id="image" accept=".png, .jpeg, .pdf"><br>
 
         <br>
         <input type="submit" value="Submit">
