@@ -16,7 +16,9 @@ let athlete = {
 }
 
 let targetMember = 'name';
-athlete[targetMember] = 'Jordon';
+athlete[targetMember] = 'Jordon';  // accessing property value using [] bracket notation.
+
+athlete.age = 28; // accessing property value using '.' dot notation.
 
 console.log(athlete.run(22));
 console.log(athlete.jump(7));
