@@ -19,5 +19,21 @@
 const language = (languageName) => `Using ${languageName} as programming language.`;
 console.log(language('java'));
 
+
 const square = (number) => number * number;
 console.log(square(7));
+
+
+
+const athletes = [
+    { name: 'Ujjwal', isActive: true },
+    { name: 'Khabib', isActive: false },
+    { name: 'Dustin', isActive: true },
+];
+
+// const activeAthletes = athletes.filter(function (athlete) {
+//     return athlete.isActive;
+// })
+
+const activeAthletes = athletes.filter(athlete => athlete.isActive); // Using arrow function in filter method
+console.log(activeAthletes); // returning active athletes
