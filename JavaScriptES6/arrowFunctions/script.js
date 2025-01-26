@@ -18,3 +18,6 @@
  */
 const language = (languageName) => `Using ${languageName} as programming language.`;
 console.log(language('java'));
+
+const square = (number) => number * number;
+console.log(square(7));
