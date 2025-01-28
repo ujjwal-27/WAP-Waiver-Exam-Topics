@@ -6,7 +6,7 @@
 
 
 /**
- * ------ FOR ARRAY ------------
+ * ------ USING SPREAD OPERATOR IN ARRAY ------------
  */
 let first = [1, 2, 3];
 let second = [4, 5, 6];
@@ -40,5 +40,23 @@ firstClone[0] = 77;
 console.log(first); // 1, 2, 3
 console.log(firstClone); // 77, 2, 3
 
+
+/**
+ * ------ USING SPREAD OPERATOR IN OBJECT ------------
+ */
+
+let personalInfo = {
+    name: 'Ujjwal',
+    age: 28
+}
+
+let address = {
+    street: 'Baluwatar',
+    city: 'Kathmandu',
+    country: 'Nepal'
+};
+
+let combinedInfo = { ...personalInfo, gender: 'male', ...address };
+console.log(combinedInfo);
 
 
