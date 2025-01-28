@@ -31,7 +31,14 @@ let combinedArray = [...first, 77, ...second, 27, ...third];
 console.log(combinedArray);
 
 
+/**
+ * We can also use spread operator to 'clone/create copy' of an array.
+ */
+let firstClone = [...first];
+firstClone[0] = 77;
 
+console.log(first); // 1, 2, 3
+console.log(firstClone); // 77, 2, 3
 
 
 
