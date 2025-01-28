@@ -51,12 +51,20 @@ let personalInfo = {
 }
 
 let address = {
-    street: 'Baluwatar',
     city: 'Kathmandu',
+    state: 'Bagmati',
     country: 'Nepal'
 };
 
 let combinedInfo = { ...personalInfo, gender: 'male', ...address };
 console.log(combinedInfo);
 
+
+let cloneAddress = { ...address };
+cloneAddress.city = 'Fairfield';
+cloneAddress.state = 'Iowa';
+cloneAddress.country = 'USA';
+
+console.log(address);
+console.log(cloneAddress);
 
