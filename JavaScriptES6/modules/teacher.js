@@ -1,5 +1,8 @@
 import { Person } from "./person.js";
 
+/**
+ * Since this class is being invoked by 'main' class (module), it must be 'exported'.
+ */
 export class Teacher extends Person {
     /**
      * The constructor takes two parameters: name and degree.
