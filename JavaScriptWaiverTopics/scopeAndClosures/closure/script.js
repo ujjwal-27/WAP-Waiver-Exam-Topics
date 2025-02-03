@@ -1,3 +1,10 @@
+/**
+ * What is closure?
+ * - A function defined inside of another function.
+ * - An inner function has access to the variables and scope of the  outer function.
+ * - Enables implementation of private variable, and allows state maintenance. 
+ * - The implementation of state maintenance is shown in example 2
+ */
 
 /**
  * EXAMPLE 1:
