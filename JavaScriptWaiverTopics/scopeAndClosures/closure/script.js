@@ -33,6 +33,7 @@
  * EXAMPLE 2:
  * Returning inner function
  * Here, the inner function 'increment' is returned, and createCounter() is stored in counter 'variable' creating a closure which results in maintaining the state of variable 'count'.
+ * It is a common practice of storing outer variable in a variable before invoking it, when the inner function is returned (not immediately invoked).
  */
 const createCounter = function () {
     let count = 0;
@@ -52,6 +53,7 @@ counter();
 
 // This is another way of calling this function. 
 // Here it invokes, createCounter() function first, and then increment() function.
+// Since the outer function is not stored in a reference variable, this approach does not maintain state.
 createCounter()();
 createCounter()();
 
