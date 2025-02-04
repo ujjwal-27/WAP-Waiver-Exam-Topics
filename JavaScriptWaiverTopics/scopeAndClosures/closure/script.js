@@ -35,27 +35,70 @@
  * Here, the inner function 'increment' is returned, and createCounter() is stored in counter 'variable' creating a closure which results in maintaining the state of variable 'count'.
  * It is a common practice of storing outer variable in a variable before invoking it, when the inner function is returned (not immediately invoked).
  */
-const createCounter = function () {
-    let count = 0;
+// const createCounter = function () {
+//     let count = 0;
 
-    const increment = function () {
-        count++;
-        console.log(`Counter increased to ${count}`);
+//     const increment = function () {
+//         count++;
+//         console.log(`Counter increased to ${count}`);
+//     }
+
+//     return increment;
+// }
+
+// const counter = createCounter(); // Store the closure. The 'counter' variable holds a reference to 'increment' function. This maintains state of 'count' variable.
+// counter();
+// counter();
+
+
+// // This is another way of calling this function. 
+// // Here it invokes, createCounter() function first, and then increment() function.
+// // Since the outer function is not stored in a reference variable, this approach does not maintain state.
+// createCounter()();
+// createCounter()();
+
+
+/**
+ * Returning inner functions as an object property.
+ * If there are multiple inner functions, it can be returned as object's property.
+ * Then, store the outer function in a reference variable.
+ * Then, invoke each inner functions through the reference variable.
+ */
+const createGame = function () {
+    let score = 0;
+
+    const increaseScore = function (points) {
+        if (points) {
+            score += points;
+            return points;
+        }
+
+        return 0;
     }
 
-    return increment;
+    const decreaseScore = function (points) {
+        if (points) {
+            score -= points;
+            return points;
+        }
+
+        return 0;
+    }
+
+    const getScore = function () {
+        return score;
+    }
+
+    return { increaseScore, decreaseScore, getScore };
 }
 
-const counter = createCounter(); // Store the closure. The 'counter' variable holds a reference to 'increment' function. This maintains state of 'count' variable.
-counter();
-counter();
+const game = createGame();
+console.log(game.increaseScore(5));
+console.log(game.increaseScore(7));
+console.log(game.decreaseScore(4));
+console.log(game.getScore());
 
 
-// This is another way of calling this function. 
-// Here it invokes, createCounter() function first, and then increment() function.
-// Since the outer function is not stored in a reference variable, this approach does not maintain state.
-createCounter()();
-createCounter()();
 
 
 
