@@ -8,7 +8,9 @@
 
 /**
  * EXAMPLE 1:
- * Immediately invoking closure (inner function)
+ * Immediately invoking inner function.
+ * Since the inner function is invoked immediately and not returned or stored, it doesn't maintain state. 
+ * Meaning, everytime 'createCounter()' is invoked, variable 'count' resets to 0. 
  */
 const createCounter = function () {
     let count = 0;
@@ -25,26 +27,10 @@ createCounter();
 createCounter();
 createCounter();
 
-/**
- * EXAMPLE 2:
- * Returning closure (inner function)
- */
-// const createCounter = function () {
-//     let count = 0;
 
-//     const increment = function () {
-//         count++;
-//         console.log(`Counter increased to ${count}`);
-//     }
 
-//     return increment;
-// }
 
-// // const counter = createCounter();
-// // counter.increment();
-// // counter.increment();las
 
-// console.log(createCounter);
 
 
 
