@@ -12,6 +12,28 @@
  * Since the inner function is invoked immediately and not returned or stored, it doesn't maintain state. 
  * Meaning, everytime 'createCounter()' is invoked, variable 'count' resets to 0. 
  */
+// const createCounter = function () {
+//     let count = 0;
+
+//     const increment = function () {
+//         count++;
+//         console.log(`Counter increased to ${count}`);
+//     }
+
+//     increment();
+// }
+
+// createCounter();
+// createCounter();
+// createCounter();
+
+
+
+/**
+ * EXAMPLE 2:
+ * Returning inner function
+ * Here, the inner function 'increment' is returned, and createCounter() is stored in counter 'variable' creating a closure which results in maintaining the state of variable 'count'.
+ */
 const createCounter = function () {
     let count = 0;
 
@@ -20,16 +42,18 @@ const createCounter = function () {
         console.log(`Counter increased to ${count}`);
     }
 
-    increment();
+    return increment;
 }
 
-createCounter();
-createCounter();
-createCounter();
+const counter = createCounter(); // Store the closure. The 'counter' variable holds a reference to 'increment' function. This maintains state of 'count' variable.
+counter();
+counter();
 
 
-
-
+// This is another way of calling this function. 
+// Here it invokes, createCounter() function first, and then increment() function.
+createCounter()();
+createCounter()();
 
 
 
