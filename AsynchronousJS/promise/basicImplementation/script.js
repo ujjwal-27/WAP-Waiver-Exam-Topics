@@ -14,7 +14,6 @@ const walkDog = () => {
     });
 }
 
-
 const doLaundry = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
