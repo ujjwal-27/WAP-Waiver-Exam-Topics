@@ -1,5 +1,12 @@
+/**
+ * Two logs have been printed before and after setTimeout (asynchronous operation).
+ * Messages in logs prints before the execution of setTimeout, which shows how asynchronous works.
+ * @returns Promise
+ */
 const walkDog = () => {
     return new Promise((resolve, reject) => {
+        console.log('Test execution before timeout.');
+
         setTimeout(() => {
             const walkedDog = true;
 
@@ -11,6 +18,8 @@ const walkDog = () => {
             }
 
         }, 2000);
+
+        console.log('Test execution after timeout.');
     });
 }
 
@@ -62,3 +71,4 @@ walkDog()
     .catch((error) => {
         console.log(error);
     })
+
