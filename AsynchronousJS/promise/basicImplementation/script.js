@@ -1,3 +1,6 @@
+console.log("Global before");
+
+
 /**
  * Two logs have been printed before and after setTimeout (asynchronous operation).
  * Messages in logs prints before the execution of setTimeout, which shows how asynchronous works.
@@ -22,6 +25,8 @@ const walkDog = () => {
         console.log('Test execution after timeout.');
     });
 }
+
+console.log("Global After");
 
 const doLaundry = () => {
     return new Promise((resolve, reject) => {
